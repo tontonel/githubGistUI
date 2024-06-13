@@ -60,3 +60,26 @@
   background-color: #f1f1f1;
 }
 
+.gist-grid-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.gist-grid-cell {
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.gist-grid-container {
+  gap: 16px;
+  padding: 20px;
+}
