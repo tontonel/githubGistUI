@@ -21,7 +21,7 @@ const SearchBar = (props) => {
             {props.userGists !== undefined &&
             props.userGists.length !== 0 ?
                 props.userGists.map((option) => (
-                <li key={option.id} onClick={() => handleOptionClick(option)}>{option.id}</li>))
+                <li key={option.id} onClick={() => handleOptionClick(option)}>gist:{option.id}</li>))
             : <li>No results to show</li>}
         </ul>
     </div>

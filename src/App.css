@@ -61,9 +61,10 @@
 }
 
 .gist-grid-row {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 16px;
+  justify-content: space-between;
+  gap: auto;
   padding: 10px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
@@ -80,6 +81,44 @@
 }
 
 .gist-grid-container {
+  display: grid;
+  width: 90%;
   gap: 16px;
   padding: 20px;
+  
+}
+
+.fork-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-bottom: 10px;
+}
+
+
+.gist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.grid-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.grid-header {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.no-forks {
+  font-size: 16px;
+  color: #ccc;
+  
 }
