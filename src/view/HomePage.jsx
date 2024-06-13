@@ -33,17 +33,10 @@ const HomePage = () => {
     }
 
     const handleRowClick = (file) => {
-        console.log(file);
         setFile(file);
     }
 
     useEffect(() => {
-        console.log(userGists);
-    }, [userGists]);
-
-    useEffect(() => {
-        console.log(selectedGist);
-        console.log("selected gist");
         setUserGists([]);
     }, [selectedGist]);
 
@@ -59,10 +52,10 @@ const HomePage = () => {
                     handleOptionClick={handleOptionClick}
                 />
             </header>  
-            <GistContainer
+            {selectedGist.id !== undefined && <GistContainer
                 gist={selectedGist} 
                 handleRowClick={handleRowClick}
-            />
+            />}
             <ContentModal show={file !== ""} onClose={() => setFile("")}>
                 <iframe
                     title={`gist-${selectedGist.id}`}

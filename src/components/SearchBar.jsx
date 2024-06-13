@@ -3,13 +3,12 @@ import React, { useRef, useState, useEffect } from 'react';
 const SearchBar = (props) => {
 
     const inputRef = useRef(null);
-
     const optionRef = useRef(null);
-
     const [showOptions, setShowOptions] = useState(false);
 
     const handleOptionClick = (option) => {
         inputRef.current.value = '';
+        setShowOptions(false);
         props.handleOptionClick(option);
     }
     
@@ -35,7 +34,6 @@ const SearchBar = (props) => {
             placeholder="Search for a user..."
             onChange={props.debouncedSearch}
             onFocus={() => setShowOptions(true)}
-
         />
         { showOptions && 
             <ul
