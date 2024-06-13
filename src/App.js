@@ -1,10 +1,12 @@
 import './App.css';
+import React from 'react';
+import HomePage from './view/HomePage.jsx';
 
 function App() {
   return (
-    <p>
-      Hello, world!
-    </p>
+    <>
+      <HomePage />
+    </>
   );
 }
 

@@ -1,11 +1,13 @@
 import ax from 'axios';
-import { MODE, SERVER_URI_PROD, SERVER_URI_DEV } from '@env'
+
+// const SERVER_URI_DEV = 'https://api.github.com'; // to not add an .env file
+// const MODE = 'DEV'; // to not add an .env file
 
 const selectURI = () => {
-    if (MODE === 'PROD')
-        return SERVER_URI_PROD;
-    else if (MODE === 'DEV')
-        return SERVER_URI_DEV;
+    if (process.env.MODE === 'PROD')
+        return process.env.SERVER_URI_PROD;
+    else if (process.env.MODE === 'DEV')
+        return process.env.SERVER_URI_DEV;
     return '';
 }
 
