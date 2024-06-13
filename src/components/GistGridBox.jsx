@@ -15,6 +15,7 @@ const GistGridBox = (props) => {
                     file={props.files[`${key}`].filename}
                     forks={props.forks_avatars_url}
                     tag={props.files[`${key}`].type.split('/')[1]} 
+                    handleRowClick={props.handleRowClick}
                 />
             ))}
        </div>

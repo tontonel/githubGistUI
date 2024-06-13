@@ -3,12 +3,15 @@ import { fetchUserGists } from "../api/gistsApi/fetchUserGists";
 import { fetchGistForks } from "../api/gistsApi/fetchGistForks";
 import SearchBar from "../components/SearchBar";
 import GistContainer from "../components/GistContainer";
+import ContentModal from "../components/ContentModal";
 import debounce from "lodash.debounce";
+
 
 const HomePage = () => {
 
     const [userGists, setUserGists] = useState([]);
     const [selectedGist, setSelectedGist] = useState({});
+    const [file, setFile] = useState("");
 
     const debouncedSearch = debounce((event) => handleSearch(event), 500);
 
@@ -29,6 +32,11 @@ const HomePage = () => {
         }
     }
 
+    const handleRowClick = (file) => {
+        console.log(file);
+        setFile(file);
+    }
+
     useEffect(() => {
         console.log(userGists);
     }, [userGists]);
@@ -39,6 +47,9 @@ const HomePage = () => {
         setUserGists([]);
     }, [selectedGist]);
 
+    const iframeUrl = `https://gist.github.com/${selectedGist.id}.js?file=${file}`;
+
+
     return (
         <>
             <header className="app-header">
@@ -48,7 +59,18 @@ const HomePage = () => {
                     handleOptionClick={handleOptionClick}
                 />
             </header>  
-            <GistContainer gist={selectedGist} />
+            <GistContainer
+                gist={selectedGist} 
+                handleRowClick={handleRowClick}
+            />
+            <ContentModal show={file !== ""} onClose={() => setFile("")}>
+                <iframe
+                    title={`gist-${selectedGist.id}`}
+                    srcDoc={`<script src="${iframeUrl}"></script>`}
+                    width="100%"
+                    height="500px"
+                ></iframe>
+            </ContentModal>
         </>
     );
 }

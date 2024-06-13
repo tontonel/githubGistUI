@@ -1,8 +1,8 @@
 import React from 'react';
 
-const GistGridRow = ({ file, forks, tag }) => {
+const GistGridRow = ({ file, forks, tag, handleRowClick }) => {
     return (
-        <div className="gist-grid-row">
+        <div className="gist-grid-row" onClick={() => handleRowClick(file)}>
             <div className="grid-cell">
                 <h3>{file}</h3>
             </div>
