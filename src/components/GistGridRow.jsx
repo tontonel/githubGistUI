@@ -9,8 +9,9 @@ const GistGridRow = ({ file, forks, tag }) => {
             </div>
             <div className="grid-cell">
                 {forks.map((fork, index) => (
-                    <p key={index}>{fork}</p>
+                    <img key={index} src={fork} alt="fork" />
                 ))}
+                {console.log(forks, "forks")}
             </div>
             <div>
                 <h3>{tag}</h3>
