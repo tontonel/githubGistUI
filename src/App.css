@@ -4,31 +4,46 @@
 
 .app-header {
   background-color: #393f4b;
-  min-height: 10vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 3vh;
 }
 
 .search-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 2vh;
+} 
 
 .search-bar input {
-  padding: 12px 20px;
+  padding: 10px;
   width: 100%;
   border: 2px solid #ccc;
   border-radius: 25px;
   font-size: 14px;
   outline: none;
   transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+
+
+.search-options {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 10; 
 }
 
 .search-bar input:focus {
